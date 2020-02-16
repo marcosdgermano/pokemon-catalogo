@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPokemon } from '../redux/actions';
-import Card from '../containers/card';
+import { fetchPokemons } from '../redux/actions';
+import Grid from '../containers/grid';
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.fetchPokemon();
+    this.props.fetchPokemons();
   }
 
   render () {
-    return <Card />;
+    return <Grid />;
   }
 };
 
-export default connect(null, { fetchPokemon })(App);
+export default connect(null, { fetchPokemons })(App);

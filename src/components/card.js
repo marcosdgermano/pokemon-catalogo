@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { getPokemonImage } from '../helpers/pokemon';
 
 class Card extends React.Component {
   render() {
-    const { id, name, image } = this.props;
+    const { id, name } = this.props.pokemon;
+    const image = getPokemonImage(id);
 
     return (
       <CardWrapper>
