@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from './card';
+import Card from '../containers/card';
 
 class Grid extends React.Component {
   render() {
     const { pokemons = {} } = this.props;
-    const pokemonsArray = Object.values(pokemons);
+
     return (
       <GridWrapper>
-        {pokemonsArray.map(pokemon => (
-          <CardWrapper>
+        {pokemons.map(pokemon => (
+          <CardWrapper key={pokemon.id}>
             <Card pokemon={pokemon} />
           </CardWrapper>
         ))}
