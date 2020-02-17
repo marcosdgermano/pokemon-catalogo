@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { getPokemonImage } from '../helpers/pokemon';
+import { formatMoney } from '../helpers/number';
+import Button from './button';
 
 class Card extends React.Component {
   constructor(props) {
@@ -17,22 +19,19 @@ class Card extends React.Component {
 
   render() {
     const { pokemon } = this.props;
-    const { id, name } = pokemon;
+    const { id, name, price } = pokemon;
     const image = getPokemonImage(id);
 
     return (
       <CardWrapper>
         <Image src={image} />
         <Name>{name}</Name>
-        <Button onClick={this.handleClick} />
+        <span>{formatMoney(price)}</span>
+        <Button text="add to cart" onClick={this.handleClick} />
       </CardWrapper>
     );
   }
 }
-
-const Button = styled.button`
-  height: 50px
-`;
 
 const CardWrapper = styled.div`
   height: 300px;
@@ -41,7 +40,7 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background: #f2f2f2;
-
+  padding: 10px;
 `;
 
 const Image = styled.img`

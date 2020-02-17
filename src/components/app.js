@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { fetchPokemons } from '../redux/actions';
+import { fetchPokemons } from '../redux/actions/pokemon';
 import Grid from '../containers/grid';
 import Cart from '../containers/cart';
 
@@ -33,9 +33,6 @@ const GridWrapper = styled.div`
   background-color: blue;
 `;
 
-const CartWrapper = styled.div`
-  width: 30%;
-  background-color: red;
-`;
+const CartWrapper = styled.div``;
 
 export default connect(null, { fetchPokemons })(App);

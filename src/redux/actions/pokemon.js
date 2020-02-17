@@ -27,7 +27,3 @@ export const fetchPokemons = () => async dispatch => {
     dispatch({ type: 'FETCH_POKEMONS_ERROR', error: e });
   }
 }
-
-export const addToCart = pokemon => dispatch => {
-  dispatch({ type: 'ADD_TO_CART', payload: pokemon });
-}
