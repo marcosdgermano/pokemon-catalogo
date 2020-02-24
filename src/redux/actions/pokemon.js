@@ -25,5 +25,18 @@ export const fetchPokemons = () => async dispatch => {
   } catch (e) {
     console.log('error >>>>>>>', e);
     dispatch({ type: 'FETCH_POKEMONS_ERROR', error: e });
+  } 
+}
+
+export const fetchPokemonsBytype = () => async dispatch => {
+  dispatch({ type: 'FETCH_POKEMONS_REQUEST' });
+
+  try {
+    const response = await pokeApi.get('type/5');
+    dispatch({ type: 'FETCH_POKEMONS', payload: formatPokemonsList(response.data.pokemon) })
+
+  } catch (e) {
+    console.log('error >>>>>>>', e);
+    dispatch({ type: 'FETCH_POKEMONS_ERROR', error: e });
   }
 }

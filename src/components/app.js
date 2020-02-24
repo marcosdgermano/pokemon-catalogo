@@ -1,25 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
-import { fetchPokemons } from '../redux/actions/pokemon';
+import styled, { ThemeProvider } from 'styled-components';
+import themes from '../theme-context';
+import { fetchPokemonsBytype } from '../redux/actions/pokemon';
 import Grid from '../containers/grid';
 import Cart from '../containers/cart';
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.fetchPokemons();
+    this.props.fetchPokemonsBytype();
   }
 
   render () {
+    const { brand } = this.props;
+
     return (
-      <Wrapper>
-        <GridWrapper>
-          <Grid />
-        </GridWrapper>
-        <CartWrapper>
-          <Cart />
-        </CartWrapper>
-      </Wrapper>
+      <ThemeProvider theme={themes[brand]}>
+        <Wrapper>
+          <GridWrapper>
+            <Grid />
+          </GridWrapper>
+          <CartWrapper>
+            <Cart />
+          </CartWrapper>
+        </Wrapper>
+      </ThemeProvider>
     );
   }
 };
@@ -30,9 +35,9 @@ const Wrapper = styled.div`
 
 const GridWrapper = styled.div`
   width: 70%;
-  background-color: blue;
+  background-color: ${props => props.theme.terciary};
 `;
 
 const CartWrapper = styled.div``;
 
-export default connect(null, { fetchPokemons })(App);
+export default connect(null, { fetchPokemonsBytype })(App);

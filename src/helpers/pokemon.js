@@ -1,16 +1,30 @@
+import _ from 'lodash';
+
 export function getPokemonImage(id) {
   return `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
 }
 
-export function formatPokemonPrice(price) {
+function formatPokemonNumber(url) {
+  return url.match('\/[0-9]+\/')[0].replace(/[/]/g, '');
+}
 
+function formatPokemon(pokemon) {
+  return {
+    name: pokemon.pokemon.name,
+    url: pokemon.pokemon.url,
+    id: formatPokemonNumber(pokemon.pokemon.url),
+    price: (Math.random() * (1000)) + 100,
+    slot: pokemon.slot,
+  };
 }
 
 export function formatPokemonsList(pokemons = []) {
+  let list = [];
+  
   for(var i = 0; i < pokemons.length; i++) {
-    pokemons[i].id = i+1;
-    pokemons[i].price = (Math.random() * (1000)) + 100;
+    list = _.concat(list, formatPokemon(pokemons[i]));
   }
 
-  return pokemons;
+  console.log('list', list);
+  return list;
 }

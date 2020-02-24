@@ -60,7 +60,7 @@ const Option = styled.div`
   justify-content: space-between;
   height: 100px;
   padding: 10px;
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.secondary};
   border-radius: 4px;
   margin: 5px 0;
 `;

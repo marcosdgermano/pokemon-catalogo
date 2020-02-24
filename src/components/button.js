@@ -17,10 +17,10 @@ const TextUI = styled.span`
 `;
 
 const ButtonUI = styled.button`
-  background-color: blue;
+  background-color: ${({ theme }) => theme.primary};
   border-width: 0px;
   border-radius: 4px;
   min-width: 50px;
-  padding: 20px 15px;;
+  padding: 15px 15px;;
   ${({ fullSize }) => fullSize && `width: 100%`};
 `;
