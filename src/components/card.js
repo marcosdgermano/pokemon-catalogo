@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from './button';
+import { LazyImage } from 'react-lazy-images';
 import { getPokemonImage } from '../helpers/pokemon';
 import { formatMoney } from '../helpers/number';
-import Button from './button';
 
 class Card extends React.Component {
   constructor(props) {
@@ -24,7 +25,13 @@ class Card extends React.Component {
 
     return (
       <CardWrapper>
-        <Image src={image} />
+        {/* <Image src={image} /> */}
+        <LazyImage 
+          src={image}
+          placeholder={({ ref }) => (
+            <img ref={ref} src="https://thumbs.dreamstime.com/z/s%C3%ADmbolo-do-vetor-oops-sobre-o-branco-29840798.jpg" />
+          )}
+        />
         <Name>{name}</Name>
         <span>{formatMoney(price)}</span>
         <Button text="add to cart" onClick={this.handleClick} />
