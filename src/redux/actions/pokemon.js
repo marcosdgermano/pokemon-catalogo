@@ -28,11 +28,11 @@ export const fetchPokemons = () => async dispatch => {
   } 
 }
 
-export const fetchPokemonsBytype = () => async dispatch => {
+export const fetchPokemonsBytype = type => async dispatch => {
   dispatch({ type: 'FETCH_POKEMONS_REQUEST' });
 
   try {
-    const response = await pokeApi.get('type/5');
+    const response = await pokeApi.get(`type/${type}`);
     dispatch({ type: 'FETCH_POKEMONS', payload: formatPokemonsList(response.data.pokemon) })
 
   } catch (e) {
