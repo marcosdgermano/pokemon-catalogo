@@ -15,8 +15,8 @@ const Application = (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/markin" exact={true} render={() => <App brand="markin" />} />
-        <Route path="/lari" exact={true} render={() => <App brand="lari" />} />  
+        <Route path="/ground" exact={true} render={() => <App brand="ground" />} />
+        <Route path="/fire" exact={true} render={() => <App brand="fire" />} />  
       </Switch>
     </BrowserRouter>
   </Provider>

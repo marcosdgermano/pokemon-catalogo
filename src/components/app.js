@@ -8,8 +8,7 @@ import Cart from '../containers/cart';
 
 class App extends React.Component {
   componentDidMount() {
-    const type = this.props.brand === 'markin' ? 'fire' : 'ground';
-    this.props.fetchPokemonsBytype(type);
+    this.props.fetchPokemonsBytype(this.props.brand);
   }
 
   render () {
