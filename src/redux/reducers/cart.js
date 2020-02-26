@@ -8,6 +8,8 @@ export default (state = initialState, action) => {
       return _.concat(state, [action.payload]);
     case 'REMOVE_FROM_CART':
       return state.filter(element => element !== action.payload);
+    case 'CLEAN_CART':
+      return [];
     default:
       return state;
   }

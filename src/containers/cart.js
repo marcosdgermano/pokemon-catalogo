@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Cart from '../components/cart';
-import { removeFromCart } from '../redux/actions/cart';
+import { removeFromCart, cleanCart } from '../redux/actions/cart';
 
 const cartSum = (pokemons = []) => {
   let sum = 0;
@@ -12,4 +12,4 @@ const cartSum = (pokemons = []) => {
 
 const mapStateToProps = ({ cart }) => ({ pokemons: cart, sum: cartSum(cart) });
 
-export default connect(mapStateToProps, { removeFromCart })(Cart);
+export default connect(mapStateToProps, { removeFromCart, cleanCart })(Cart);

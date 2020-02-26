@@ -9,3 +9,7 @@ export const addToCart = pokemon => (dispatch, getState) => {
 export const removeFromCart = pokemon => dispatch => {
   dispatch({ type: 'REMOVE_FROM_CART', payload: pokemon });
 }
+
+export const cleanCart = () => dispatch => {
+  dispatch({ type: 'CLEAN_CART' });
+}

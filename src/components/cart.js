@@ -25,7 +25,7 @@ class Cart extends React.Component {
   }
 
   render() {
-    const { pokemons, sum = 0 } = this.props;
+    const { pokemons, cleanCart, sum = 0 } = this.props;
 
     console.log('sum', sum);
     return (
@@ -34,7 +34,7 @@ class Cart extends React.Component {
           <List>{pokemons.map(pokemon => this.renderPokemon(pokemon))}</List>
           <div>
             <span>valor: {formatMoney(sum)}</span>
-            <Button text="finalizar compra" fullSize /> 
+            <Button onClick={cleanCart} text="finalizar compra" fullSize /> 
           </div>
         </Wrapper>
       </CartView>
